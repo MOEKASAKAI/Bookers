@@ -1,1 +1,25 @@
-<h1>ここは記事一覧の</h1>
+<h1><strong>Books</strong></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <span><%= book.title %></span>
+      <span><%= book.body %></span>
+    <% end %>
+  </tbody>
+</table>
+
+  <h2>New Book</h2>
+  <%= form_with model:@book, url:'/books', local:true do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+    <p>Body</p>
+    <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
