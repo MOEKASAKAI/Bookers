@@ -1,1 +1,8 @@
-<h1>ここは編集ページです</h1>
+<h1>Editind Book</h1>
+<%= form_with model:@book, url:"/books/#{@book.id}", local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Body</p>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update Book' %>
+<% end %>
